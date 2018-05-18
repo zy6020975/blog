@@ -1,0 +1,29 @@
+#设置服务器端口
+server:
+  port: '8888'
+  
+#阿里druid连接池配置,数据库的连接配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&autoReconnect=true
+    username: root
+    password: 123456
+    name: druid
+
+    #初始化允许连接数量，以及连接时间为60s
+    druid:
+      initial-size: 5 #初始化连接数量
+      min-idle: 5 #最小空闲连接
+      max-active: 50 #最大连接数
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000 #设置检查时间，每隔一分钟进行一次检查，检测需要关闭的空闲连接
+      #配置一个连接在连接池中的生存时间,时间是毫秒,然后，校验sql语句
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+  #jpa的配置
+  jpa:
+    hibernate:
+      ddl-auto: update #与数据库表进行同步更新
+    show-sql: true #打印sql语句
