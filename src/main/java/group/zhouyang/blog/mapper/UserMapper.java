@@ -3,8 +3,11 @@ package group.zhouyang.blog.mapper;
 import group.zhouyang.blog.model.User;
 import group.zhouyang.blog.model.UserExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
 

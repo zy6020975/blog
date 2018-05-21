@@ -27,7 +27,13 @@ spring:
     hibernate:
       ddl-auto: update #与数据库表进行同步更新
     show-sql: true #打印sql语句
+    
+    
 #mybatis的mapper文件配置
 mybatis:
   mapper-locations: classpath:static/mapper/*.xml
   type-aliases-package: group.zhouyang.blog.model
+  
+#日志配置
+logging:
+  file: /logs/blog.log
